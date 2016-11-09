@@ -9,7 +9,7 @@ import { IPost } from './post';
       <div *ngIf="isLoading">
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
       </div>
-      <p>from the posts.component.ts</p>
+      <p>Data from the posts.component.ts</p>
       <div *ngFor="let post of posts">
         <h3>{{post.title}}</h3>
         <p>{{post.body}}</p>
