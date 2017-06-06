@@ -7,7 +7,7 @@ import { IPost } from './post';
     template: `
       <h1>Posts</h1>
       <div *ngIf="isLoading">
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <i class="fa fa-circle-o-notch fa-spin fa-3x"></i>
       </div>
       <p>Data from the posts.component.ts</p>
       <div *ngFor="let post of posts">
@@ -33,10 +33,13 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts(): void {
+        this.isLoading = true;
+        // this.isLoading = true;
         this._postService.getPosts()
                 .subscribe(posts => {
-                                      this.posts = posts;
-                                    },
-                           error => this.errorMessage = <any>error);
+                  this.isLoading = false;
+                  this.posts = posts;
+                },
+                error => this.errorMessage = <any>error);
     }
 }
